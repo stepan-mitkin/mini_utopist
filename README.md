@@ -28,24 +28,33 @@ They can read variables from the task object and return a value.
 **Writing to the task object from inside an algorithm is not allowed.**
 
 ```javascript
-// Create the task object
-var equation = new Quadric()
+// Design the model of the task.
+function MyTask() {
+    // Add an input variable
+    mini_utopist.addProperty(this, "foo", null)
+    
+    // Add a computed variable. Specify the algorithm that computes its value.
+    mini_utopist.addProperty(this, "mid", function() {
+        // This is a pure function!
+        // It does not write to the task object.
+        return this.foo() + 5
+    })
+    
+    // Add an output variable.
+    mini_utopist.addProperty(this, "bar", function() {
+        return 2 * this.mid()
+    })
+}
 
-// Fill in the input variables
-equation.a(8)
-equation.b(-6)
-equation.c(1)
+// Create the task object.
+var task = new MyTask()
 
-console.log("equation a:", equation.a(), "b:", equation.b(), "c:", equation.c())
+// Fill in the input variables.
+task.foo(10)
 
-// Read the output variables in any order. They will be calculated on demand.
-console.log("number of roots", equation.numberOfRoots())
-console.log("x1", equation.x1())
-console.log("x2", equation.x2())
-	
-var check1 = equation.x1() * equation.x1() * equation.a() + equation.x1() * equation.b() + equation.c()
-var check2 = equation.x2() * equation.x2() * equation.a() + equation.x2() * equation.b() + equation.c()
-console.log("check1", check1, "check2", check2)
+// Read the output variables in any order.
+// They will be calculated on demand.
+console.log("bar:", task.bar())
 ```
 
 Did you know? [DRAKON Editor](https://github.com/stepan-mitkin/drakon_editor/tree/master/examples/JsUtopist) has support for UTOPIST tasks too.
