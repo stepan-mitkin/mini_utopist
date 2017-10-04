@@ -7,6 +7,36 @@
 
 mini_utopist = require("./mini_utopist.js")
 
+
+// Example 1.
+
+// Design the model of the task
+function MyTask() {
+    // Add an input variable
+    mini_utopist.addProperty(this, "foo", null)
+    
+    // Add output variable. Specify the algorithm that computes its value.
+    mini_utopist.addProperty(this, "bar", function() {
+        // This is a pure function!
+        // It does not write to the task object.
+        return 2 * this.foo()
+    })
+}
+
+// Create the task object.
+var task = new MyTask()
+
+// Fill in the input variables.
+task.foo(10)
+
+// Read the output variables in any order.
+// They will be calculated on demand.
+console.log("bar:", task.bar())
+
+
+
+// Example 2.
+
 // Define the algorithms that calculate values for the variables.
 // Function names do not matter.
 function Quadric_discriminant() {
@@ -65,7 +95,7 @@ function Quadric_x2() {
     }
 }
 
-// Define the task model.
+// Design the model of the task.
 // The model is a JavaScript object that has properties.
 function Quadric() {
     // Input variables
@@ -99,4 +129,3 @@ var check1 = equation.x1() * equation.x1() * equation.a() + equation.x1() * equa
 var check2 = equation.x2() * equation.x2() * equation.a() + equation.x2() * equation.b() + equation.c()
 console.log("check1", check1, "check2", check2)
 
-    
