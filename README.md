@@ -1,6 +1,8 @@
 # mini_utopist
 World's smallest JavaScript framework for conceptual programming
 
+Inspired by the UTOPIST programming language.
+
 ## How to program with mini_utopist
 
 1. Design the model of the task.
@@ -11,11 +13,11 @@ World's smallest JavaScript framework for conceptual programming
 - If necessary, add intermediary variables.
 - Define algorithms that compute the intermediary variables.
 
-*Important rule*
+**Important rule**
 
 Algorithms that compute variables must be pure functions.
-They can read variables of the model and return a value.
-Writing to the task object from inside an algorithm is not allowed.
+They can read variables from the task object and return a value.
+**Writing to the task object from inside an algorithm is not allowed.**
 
 2. Create the task object.
 
@@ -23,6 +25,7 @@ Writing to the task object from inside an algorithm is not allowed.
 
 4. Read the output variables in any order. They will be calculated on demand.
 
+```javascript
 // Create the task object
 var equation = new Quadric()
 
@@ -41,3 +44,6 @@ console.log("x2", equation.x2())
 var check1 = equation.x1() * equation.x1() * equation.a() + equation.x1() * equation.b() + equation.c()
 var check2 = equation.x2() * equation.x2() * equation.a() + equation.x2() * equation.b() + equation.c()
 console.log("check1", check1, "check2", check2)
+```
+
+Did you know? [DRAKON Editor](https://github.com/stepan-mitkin/drakon_editor/tree/master/examples/JsUtopist) has support for UTOPIST tasks too.
