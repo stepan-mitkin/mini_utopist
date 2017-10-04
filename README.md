@@ -27,6 +27,8 @@ Algorithms that compute variables must be pure functions.
 They can read variables from the task object and return a value.
 **Writing to the task object from inside an algorithm is not allowed.**
 
+## Example
+
 ```javascript
 // Design the model of the task.
 function MyTask() {
