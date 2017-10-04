@@ -22,6 +22,7 @@ Inspired by the UTOPIST programming language.
 ## Pure functions only
 
 **Important rule**
+
 Algorithms that compute variables must be pure functions.
 They can read variables from the task object and return a value.
 **Writing to the task object from inside an algorithm is not allowed.**
