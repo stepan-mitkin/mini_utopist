@@ -3,6 +3,12 @@ World's smallest JavaScript framework for conceptual programming
 
 Inspired by the UTOPIST programming language.
 
+## Install
+
+```
+npm install mini_utopist
+```
+
 ## How to program with mini_utopist
 
 1. Design the model of the task.
