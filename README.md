@@ -60,3 +60,7 @@ console.log("bar:", task.bar())
 ```
 
 Did you know? [DRAKON Editor](https://github.com/stepan-mitkin/drakon_editor/tree/master/examples/JsUtopist) has support for UTOPIST tasks too.
+
+## License
+
+PUBLIC DOMAIN
