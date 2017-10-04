@@ -15,11 +15,16 @@ function MyTask() {
     // Add an input variable
     mini_utopist.addProperty(this, "foo", null)
     
-    // Add output variable. Specify the algorithm that computes its value.
-    mini_utopist.addProperty(this, "bar", function() {
+    // Add a computed variable. Specify the algorithm that computes its value.
+    mini_utopist.addProperty(this, "mid", function() {
         // This is a pure function!
         // It does not write to the task object.
-        return 2 * this.foo()
+        return this.foo() + 5
+    })
+    
+    // Add another computed variable.
+    mini_utopist.addProperty(this, "bar", function() {
+        return 2 * this.mid()
     })
 }
 
