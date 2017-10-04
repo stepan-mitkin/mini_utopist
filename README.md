@@ -13,17 +13,18 @@ Inspired by the UTOPIST programming language.
 - If necessary, add intermediary variables.
 - Define algorithms that compute the intermediary variables.
 
-**Important rule**
-
-Algorithms that compute variables must be pure functions.
-They can read variables from the task object and return a value.
-**Writing to the task object from inside an algorithm is not allowed.**
-
 2. Create the task object.
 
 3. Fill in the input variables.
 
 4. Read the output variables in any order. They will be calculated on demand.
+
+## Pure functions only
+
+**Important rule**
+Algorithms that compute variables must be pure functions.
+They can read variables from the task object and return a value.
+**Writing to the task object from inside an algorithm is not allowed.**
 
 ```javascript
 // Create the task object
